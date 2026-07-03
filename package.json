@@ -1,0 +1,23 @@
+{
+  "name": "auto-suggest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meghana-Chakravarthi/Auto-Suggest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Meghana-Chakravarthi/Auto-Suggest/issues"
+  },
+  "homepage": "https://github.com/Meghana-Chakravarthi/Auto-Suggest#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
