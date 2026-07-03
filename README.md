@@ -1,3 +1,3 @@
-# Auto-Suggest1
+# Auto-Suggest
 
 # This is my main repo for the project
