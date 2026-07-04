@@ -3,9 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Auto Suggest</title>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #96b2cb;
+            font-family:"Playfair Display", serif;
+            margin: 0;
+        }
+        #p1{
+            position:absolute;
+            top:20px;
+            left:20px;
+        }
+        #p2{
+            position: absolute;
+            top:20px;
+            right:20px;  
+        }
+        form{
+            position:absolute;
+            text-align:center;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #searchinp{
+            /* display:flex;
+            justify-content:center; */
+            width:400px;
+            padding:10px;
+            border-radius:20px;
+            box-shadow:inset 0 0 10px #8e0fe9, 0 0 20px #8e0fe9;    
+        }
+          #suggestion-box {
+            /* border: 1px solid rgb(0, 0, 0); */
+            text-align: center;
+            border-radius: 20px;
+            width: 380px;
+            margin:auto;
+            padding: 10px;
+           
+        }
+    </style>
 </head>
 <body>
-    <h1>Auto Suggest Page</h1>
+    <!-- <h1>Auto Suggest Page</h1> -->
+     <!-- <span>&#9881;</span>  we can write using span too -->
+    <p id ="p1" >&#9881;</p>
+    <p id="p2"> &bull; online | &#128339; - ms</p>
+    <form>
+        <h1 id="h1" style="font-size: 80px;">
+            <span style="color: #00ffc3;">Lu</span><span style="color: rgb(255, 49, 49);">mi</span><span style="color: rgb(125, 49, 255);">na</span>
+        </h1>
+        <p id = "p3" style="font-family: 'Playfair Display', serif; font-size: 18px;">One million phrases. Four Algorithms. Prefix Based Auto Suggest!</p>
+        <input type="search" id="searchinp" placeholder="&#128269; Lets dive into...">
+        <div id="suggestion-box">
+            Suggestion box
+        </div>
+    </form>
 </body>
 </html>
