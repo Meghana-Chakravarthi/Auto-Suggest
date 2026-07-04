@@ -28,10 +28,10 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        #searchinp{
+        #search-inp{
             /* display:flex;
             justify-content:center; */
-            width:400px;
+            width:500px;
             padding:10px;
             border-radius:20px;
             box-shadow:inset 0 0 10px #8e0fe9, 0 0 20px #8e0fe9;    
@@ -40,10 +40,14 @@
             /* border: 1px solid rgb(0, 0, 0); */
             text-align: center;
             border-radius: 20px;
-            width: 380px;
+            width: 500px;
             margin:auto;
             padding: 10px;
-           
+        }
+        #suggestion-item{
+            border: 1px dashed rgb(30, 188, 255);
+            padding:7px;
+            border-radius: 20px;
         }
     </style>
 </head>
@@ -57,10 +61,41 @@
             <span style="color: #00ffc3;">Lu</span><span style="color: rgb(255, 49, 49);">mi</span><span style="color: rgb(125, 49, 255);">na</span>
         </h1>
         <p id = "p3" style="font-family: 'Playfair Display', serif; font-size: 18px;">One million phrases. Four Algorithms. Prefix Based Auto Suggest!</p>
-        <input type="search" id="searchinp" placeholder="&#128269; Lets dive into...">
+        <input type="search" id="search-inp" placeholder="&#128269; Lets dive into...">
         <div id="suggestion-box">
             <!-- Suggestion box -->
         </div>
     </form>
+    <script>
+        var searchBox = document.getElementById("search-inp");
+        var suggestionBox = document.getElementById("suggestion-box");
+        searchBox.addEventListener("input",function(){
+            // 1. Get user typed text
+            // 2. Make API call to get suggestion
+            // 3. Display data results in HTML
+            var userInput = searchBox.value;
+            if(userInput.trim === ""){
+                suggestionBox.innerHTML = "";
+            }else{
+                var url1 = "https://autosuggest-backend.onrender.com/api/autosuggest?q=";
+                var url3 =  "&algorithm=brute&limit=10&weighted=false";
+                var url = url1 + userInput + url3;
+                fetch(url)
+                    .then(function(response){
+                        return response.json();
+                    })
+                    .then(function(data){
+                        // Display suggestions in the suggestion box
+                        console.log(data);
+                        var resultArray = data.results;
+                        var htmlResults = "";
+                        for(var i=0;i<resultArray.length;i++){
+                            htmlResults+= "<div id='suggestion-item'>"+resultArray[i].text+"</div>";
+                        }
+                        suggestionBox.innerHTML = htmlResults;
+                    })
+            }
+        })
+    </script>
 </body>
 </html>
